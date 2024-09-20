@@ -100,19 +100,26 @@ public class BankPayment {
         cancelButton.click();
     }
 
-    public boolean verifyPaymentSuccessful(){return success.isDisplayed();}
-
     @FindBy(xpath = "//iframe[@id='snap-midtrans']")
     WebElement failedPopup;
 
     @FindBy(xpath = "//div[@class='prompt-modal-title']")
     WebElement orderFailed;
 
+    public boolean verifyPaymentSuccessful(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.switchTo().defaultContent();
+        wait.until(ExpectedConditions.visibilityOf(failedPopup));
+        driver.switchTo().frame(failedPopup);
+        return success.isDisplayed();
+    }
+
     public boolean verifyOrderFailure(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.switchTo().defaultContent();
         wait.until(ExpectedConditions.visibilityOf(failedPopup));
         driver.switchTo().frame(failedPopup);
-        return orderFailed.isDisplayed();}
+        return orderFailed.isDisplayed();
+    }
 
 }

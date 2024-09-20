@@ -171,10 +171,13 @@ public class OrderSummary {
     @FindBy(xpath = "//div[contains(text(),'19.000')]")
     WebElement newAmount;
 
-    public boolean verifyDiscountApplied(){
+    public void clickPromo(){
         promoButton.click();
         promoRadioButton.click();
         useButton.click();
+    }
+
+    public boolean verifyDiscountApplied(){
         return newAmount.isDisplayed();
     }
 

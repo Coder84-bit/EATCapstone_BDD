@@ -24,7 +24,6 @@ public class CardDetails {
     }
 
     public boolean verifyCardDetailsScreen(){
-        creditCard.click();
         return cardDetailsScreen.isDisplayed();
     }
 

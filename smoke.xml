@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="EAT Capstone Project">
+<suite name="EAT Capstone Project_BDD">
     <test name="Smoke Testing" thread-count="1" parallel="false">
-        <groups>
-            <run>
-                <include name = "smoke"/>
-            </run>
-        </groups>
         <classes>
-            <class name = "test.CheckoutTest"/>
-            <class name = "test.SummaryTest"/>
-            <class name = "test.ValidOTPTest"/>
-            <class name = "test.InvalidOTPTest"/>
-            <class name = "test.CancelTest"/>
+            <class name = "setup.TestRunner"/>
         </classes>
     </test>
 </suite>
